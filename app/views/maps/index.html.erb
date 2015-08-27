@@ -1,0 +1,61 @@
+<h1>AirportMapApp</h1>
+<p>Powered by Gogo<p>
+<img src="http://www.airtran.com/common/images/_content/gogo_logo.jpg " alt="gogologo">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+
+<p>You can find your way through the Airport in NO TIME!!!!</p>
+
+
+
+
+<form accept-charset="UTF-8" action="#" method="get">
+  <label for="q">Search for:</label>
+  <input id="q" name="q" type="text" />
+  <input name="commit" type="button" value="Search" onclick="myFunction()" />
+</form>
+
+<div id="result">
+</div>
+
+
+
+<script>
+//document.domain="gogo-test.apigee.net";
+var x=document.getElementById("q");
+
+function myData(data){
+	console.log("hello");
+	$( "#result").html(data);
+
+}
+
+function myFunction()
+{
+	var url ="http://gogo-test.apigee.net/v1/aircraft/tailno/"+x.value+"?apikey=0XOAphNPi8w4nY1LAqVnhlUIPsBDV69Q";
+
+console.log(url);
+
+$.ajax({
+	type: "GET",
+	url: url,
+	jsonp: "jsonp_callback",
+	dataType: "jsonp",
+	success: myData
+	
+
+});
+
+
+
+
+
+
+};
+
+</script>
+
+
+
+
